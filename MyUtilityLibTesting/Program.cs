@@ -23,6 +23,54 @@ namespace UtilityLibTesting
 
             TestVector2D();
 
+            TestVector4D();
+
+        }
+
+        public static void TestVector4D()
+        {
+            Console.WriteLine("### Started testing Vector4D! ###\n");
+
+            Vector4D v1 = new Vector4D(1, 2, 3, 4);
+            Vector4D v2 = new Vector4D(2, 3, 4, 5);
+
+            // Test addition
+            Vector4D sum = Vector4D.Add(v1, v2);
+            if (sum.X != 3 || sum.Y != 5 || sum.Z != 7 || sum.W != 9)
+                throw new Exception("Vector4D addition test failed!");
+
+            // Test subtraction
+            Vector4D difference = Vector4D.Subtract(v1, v2);
+            if (difference.X != -1 || difference.Y != -1 || difference.Z != -1 || difference.W != -1)
+                throw new Exception("Vector4D subtraction test failed!");
+
+            // Test multiplication
+            Vector4D product = Vector4D.Multiply(v1, v2);
+            if (product.X != 2 || product.Y != 6 || product.Z != 12 || product.W != 20)
+                throw new Exception("Vector4D multiplication test failed!");
+
+            // Test division
+            Vector4D quotient = Vector4D.Divide(v1, v2);
+            if (quotient.X != 0.5 || quotient.Y != 2.0 / 3.0 || quotient.Z != 0.75 || quotient.W != 0.8)
+                throw new Exception("Vector4D division test failed!");
+
+            // Test inversion
+            Vector4D inverted = v1.Inverted;
+            if (inverted.X != -1 || inverted.Y != -2 || inverted.Z != -3 || inverted.W != -4)
+                throw new Exception("Vector4D inversion test failed!");
+
+            // Test normalization
+            Vector4D normalized = v1.Normalized;
+            double length = normalized.Length;
+            if (Math.Abs(length - 1.0) > 1e-10)
+                throw new Exception("Vector4D normalization test failed!");
+
+            // Test length calculation
+            double lengthV1 = v1.Length;
+            if (Math.Abs(lengthV1 - Math.Sqrt(30)) > 1e-10)
+                throw new Exception("Vector4D length calculation test failed!");
+
+            Console.WriteLine("### Finished testing Vector4D! ###\n");
         }
 
         public static void TestVector3D()
