@@ -8,13 +8,17 @@ namespace MyUtilityLibTesting
         static void Main(string[] args)
         {
 
-            TestUtilityMath(99999999);
+            TestUtilityMath(999999);
 
+            
             TestUtilityString("test");
             TestUtilityString("-_!test");
             TestUtilityString(" test ");
             TestUtilityString(" this is a test   sentence  !  ");
+
             TestUtilityString(new string[] { "test", "-_!test-", "  test  ", "hi", "this is a test sentence" });
+
+
 
         }
 
@@ -23,17 +27,14 @@ namespace MyUtilityLibTesting
             Console.WriteLine("###Started testing UtilityMath! \n\n-------------------------\n");
             for (int i = 0; i <= maxnumber; i++)
             {
-
                 if (UtilityMath.IsOdd(i) == UtilityMath.IsEven(i)) { throw new Exception($"Number {i} is both Odd and Even! Schroedingers Number Exception!"); }
 
                 if (i == maxnumber) { Console.WriteLine("#IsOdd and IsEven are working! \n\n--------------------------\n"); }
 
                 if (i == 2) { continue; }
-
                 if (UtilityMath.IsEven(i) && UtilityMath.IsPrime(i)) { throw new Exception($"Number {i} is both Prime and Even! I am confused Exception!"); }
 
                 if (i == maxnumber) { Console.WriteLine("#IsPrime is working! \n\n--------------------------\n"); }
-
             }
             Console.WriteLine("###Finished testing UtilityMath! \n\n-------------------------\n");
         }
