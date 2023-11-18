@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using MyUtilityLib;
+﻿using MyUtilityLib;
 
 namespace MyUtilityLibTesting
 {
@@ -12,6 +11,7 @@ namespace MyUtilityLibTesting
 
             
             TestUtilityString("test");
+            TestUtilityString("1 5te_8.st 8-3 2");
             TestUtilityString("-_!test");
             TestUtilityString(" test ");
             TestUtilityString(" this is a test   sentence  !  ");
