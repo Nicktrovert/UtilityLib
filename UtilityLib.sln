@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLib", "MyUtilityLib\UtilityLib.csproj", "{7465443F-BDFD-40F7-964B-63C18A482295}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLib", "UtilityLib\UtilityLib.csproj", "{7465443F-BDFD-40F7-964B-63C18A482295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLibTesting", "MyUtilityLibTesting\UtilityLibTesting.csproj", "{D35724E6-3800-4C0C-9644-F1E05A1F2FD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLibTesting", "UtilityLibTesting\UtilityLibTesting.csproj", "{D35724E6-3800-4C0C-9644-F1E05A1F2FD8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{7465443F-BDFD-40F7-964B-63C18A482295} = {7465443F-BDFD-40F7-964B-63C18A482295}
 	EndProjectSection

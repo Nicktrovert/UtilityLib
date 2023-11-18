@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyUtilityLib\UtilityLib.csproj" />
+    <ProjectReference Include="..\UtilityLib\UtilityLib.csproj" />
   </ItemGroup>
 
 </Project>
