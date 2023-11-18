@@ -217,3 +217,178 @@ public class Vector3D
         throw new InvalidOperationException("Cannot normalize a vector with zero length.");
     }
 }
+
+
+/// <summary>
+/// Represents a 2D vector with <see cref="X"/> and <see cref="Y"/> components.
+/// </summary>
+public class Vector2D
+{
+    /// <summary>
+    /// Gets or sets the <see cref="X"/> component of the vector.
+    /// </summary>
+    public double X { get; set; }
+
+    /// <summary>
+    /// Gets or sets the <see cref="Y"/> component of the vector.
+    /// </summary>
+    public double Y { get; set; }
+
+    /// <summary>
+    /// Gets a vector with all components set to zero.
+    /// </summary>
+    public static Vector2D Zero => new Vector2D(0, 0);
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Vector2D"/> class with specified components.
+    /// </summary>
+    /// <param name="x">The <see cref="X"/> component of the vector.</param>
+    /// <param name="y">The <see cref="Y"/> component of the vector.</param>
+    public Vector2D(double x = 0, double y = 0) { X = x; Y = y; }
+
+    /// <summary>
+    /// Gets a vector with components equal to the negation of the original vector.
+    /// </summary>
+    /// <returns>The inverted vector.</returns>
+    public Vector2D Inverted => new Vector2D(-X, -Y);
+
+    /// <summary>
+    /// Gets a vector with the same direction as the original vector but with a length of 1.
+    /// </summary>
+    /// <returns>The normalized vector.</returns>
+    public Vector2D Normalized
+    {
+        get
+        {
+            double length = Length;
+            if (length != 0)
+            {
+                return new Vector2D(X / length, Y / length);
+            }
+            throw new InvalidOperationException("Cannot normalize a vector with zero length.");
+        }
+    }
+
+    /// <summary>
+    /// Gets the Euclidean length (magnitude) of the vector.
+    /// </summary>
+    /// <returns>The length of the vector.</returns>
+    public double Length => Math.Sqrt(X * X + Y * Y);
+
+    /// <summary>
+    /// Adds the specified values to the vector components.
+    /// </summary>
+    /// <param name="x">The value to add to the <see cref="X"/> component.</param>
+    /// <param name="y">The value to add to the <see cref="Y"/> component.</param>
+    /// <returns>The updated vector.</returns>
+    public Vector2D Add(double x = 0, double y = 0)
+    {
+        X += x; Y += y;
+        return this;
+    }
+
+    /// <summary>
+    /// Adds the components of another vector to this vector.
+    /// </summary>
+    /// <param name="v">The vector to add.</param>
+    /// <returns>The updated vector.</returns>
+    public Vector2D Add(Vector2D v)
+    {
+        X += v.X; Y += v.Y;
+        return this;
+    }
+
+    /// <summary>
+    /// Subtracts the specified values from the vector components.
+    /// </summary>
+    /// <param name="x">The value to subtract from the <see cref="X"/> component.</param>
+    /// <param name="y">The value to subtract from the <see cref="Y"/> component.</param>
+    /// <returns>The updated vector.</returns>
+    public Vector2D Subtract(double x = 0, double y = 0)
+    {
+        X -= x; Y -= y;
+        return this;
+    }
+
+    /// <summary>
+    /// Subtracts the components of another vector from this vector.
+    /// </summary>
+    /// <param name="v">The vector to subtract.</param>
+    /// <returns>The updated vector.</returns>
+    public Vector2D Subtract(Vector2D v)
+    {
+        X -= v.X; Y -= v.Y;
+        return this;
+    }
+
+    /// <summary>
+    /// Divides the vector components by the specified values.
+    /// </summary>
+    /// <param name="x">The value to divide the <see cref="X"/> component by.</param>
+    /// <param name="y">The value to divide the <see cref="Y"/> component by.</param>
+    /// <returns>The updated vector.</returns>
+    public Vector2D Divide(double x = 0, double y = 0)
+    {
+        X /= x; Y /= y;
+        return this;
+    }
+
+    /// <summary>
+    /// Divides the vector components by the components of another vector.
+    /// </summary>
+    /// <param name="v">The vector to divide by.</param>
+    /// <returns>The updated vector.</returns>
+    public Vector2D Divide(Vector2D v)
+    {
+        X /= v.X; Y /= v.Y;
+        return this;
+    }
+
+    /// <summary>
+    /// Multiplies the vector components by the specified values.
+    /// </summary>
+    /// <param name="x">The value to multiply the <see cref="X"/> component by.</param>
+    /// <param name="y">The value to multiply the <see cref="Y"/> component by.</param>
+    /// <returns>The updated vector.</returns>
+    public Vector2D Multiply(double x = 0, double y = 0)
+    {
+        X *= x; Y *= y;
+        return this;
+    }
+
+    /// <summary>
+    /// Multiplies the vector components by the components of another vector.
+    /// </summary>
+    /// <param name="v">The vector to multiply by.</param>
+    /// <returns>The updated vector.</returns>
+    public Vector2D Multiply(Vector2D v)
+    {
+        X *= v.X; Y *= v.Y;
+        return this;
+    }
+
+    /// <summary>
+    /// Inverts the sign of each vector component.
+    /// </summary>
+    /// <returns>The inverted vector.</returns>
+    public Vector2D Invert()
+    {
+        X = -X; Y = -Y;
+        return this;
+    }
+
+    /// <summary>
+    /// Normalizes the vector to have a length of 1.
+    /// </summary>
+    /// <returns>The normalized vector.</returns>
+    public Vector2D Normalize()
+    {
+        double length = Length;
+        if (length != 0)
+        {
+            X *= 1.0 / length; Y *= 1.0 / length;
+            return this;
+        }
+        throw new InvalidOperationException("Cannot normalize a vector with zero length.");
+    }
+}
