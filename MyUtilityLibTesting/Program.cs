@@ -1,6 +1,8 @@
-﻿using MyUtilityLib;
+﻿using UtilityLib.UMath;
+using UtilityLib.UString;
+using UtilityLib.MathUnits;
 
-namespace MyUtilityLibTesting
+namespace UtilityLibTesting
 {
     class Program
     {
@@ -9,6 +11,11 @@ namespace MyUtilityLibTesting
 
             TestUtilityMath(999999);
 
+            Vector3D vec1 = new Vector3D(1.5, 2, 0);
+            vec1.Invert();
+            vec1.Add(vec1);
+            Vector3D vec = vec1.Normalized;
+            Console.WriteLine(vec.ToString() + "   " + vec.X + " " + vec.Y + " " + vec.Z);
             
             TestUtilityString("test");
             TestUtilityString("1 5te_8.st 8-3 2");
@@ -16,7 +23,7 @@ namespace MyUtilityLibTesting
             TestUtilityString(" test ");
             TestUtilityString(" this is a test   sentence  !  ");
 
-            TestUtilityString(new string[] { "test", "-_!test-", "  test  ", "hi", "this is a test sentence" });
+            TestUtilityString(new string[] { "test", "1 5te_8.st 8-3 2", "-_!test-", "  test  ", "hi", "this is a test     sentence    !" });
 
 
 
@@ -48,6 +55,7 @@ namespace MyUtilityLibTesting
             Console.WriteLine("#UpperFirstChar is working! \n\n--------------------------\n");
 
             if (Char.IsLower(UtilityString.UpperEachFirstChar(TestString)[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! "); }
+            Console.WriteLine(UtilityString.UpperEachFirstChar(TestString, true));
 
             Console.WriteLine("#UpperEachFirstChar is working! \n\n--------------------------\n");
 
@@ -72,10 +80,11 @@ namespace MyUtilityLibTesting
 
             Console.WriteLine("#UpperFirstChar is working! \n\n--------------------------\n");
 
-            strings = UtilityString.UpperEachFirstChar(TestStrings).ToList();
+            strings = UtilityString.UpperEachFirstChar(TestStrings, false).ToList();
             foreach (string s in strings)
             {
                 if (Char.IsLower(s[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! IList string conversion"); }
+                Console.WriteLine(s);
             }
 
             Console.WriteLine("#UpperEachFirstChar is working! \n\n-------------------------\n");
