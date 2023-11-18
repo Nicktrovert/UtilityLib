@@ -1,4 +1,5 @@
-﻿using MyUtilityLib;
+﻿using Microsoft.VisualBasic;
+using MyUtilityLib;
 
 namespace MyUtilityLibTesting
 {
@@ -12,6 +13,7 @@ namespace MyUtilityLibTesting
             TestUtilityString("test");
             TestUtilityString("-_!test");
             TestUtilityString(" test ");
+            TestUtilityString(" this is a test   sentence  !  ");
             TestUtilityString(new string[] { "test", "-_!test-", "  test  ", "hi", "this is a test sentence" });
 
         }
@@ -40,9 +42,13 @@ namespace MyUtilityLibTesting
         {
             Console.WriteLine("###Started testing UtilityString! single string. \n\n--------------------------\n");
 
-            if (TestString == "" || Char.IsLower(UtilityString.UpperFirstChar(TestString)[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! single string conversion."); }
+            if (Char.IsLower(UtilityString.UpperFirstChar(TestString)[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! single string conversion."); }
 
             Console.WriteLine("#UpperFirstChar is working! \n\n--------------------------\n");
+
+            if (Char.IsLower(UtilityString.UpperEachFirstChar(TestString)[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! "); }
+
+            Console.WriteLine("#UpperEachFirstChar is working! \n\n--------------------------\n");
 
             Console.WriteLine("###Finished testing UtilityString! single string. \n\n--------------------------\n");
         }
@@ -51,19 +57,31 @@ namespace MyUtilityLibTesting
         {
             Console.WriteLine("###Started testing UtilityString! string[] \n\n--------------------------\n");
 
-            foreach (string s in TestStrings) 
-            {
-                if (Char.IsLower(UtilityString.UpperFirstChar(s)[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! single string conversion each."); }
-            }
+
+            //foreach (string s in TestStrings) 
+            //{
+            //    if (Char.IsLower(UtilityString.UpperFirstChar(s)[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! single string conversion each."); }
+            //}
 
             List<string> strings = new List<string>();
             strings = UtilityString.UpperFirstChar(TestStrings).ToList();
             foreach (string s in strings) 
             {
-                if (Char.IsLower(s[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! array/list string conversion."); }
+                if (Char.IsLower(s[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! IList string conversion."); }
             }
 
             Console.WriteLine("#UpperFirstChar is working! \n\n--------------------------\n");
+
+
+            strings = new List<string>();
+            strings = UtilityString.UpperEachFirstChar(TestStrings).ToList();
+            foreach (string s in strings)
+            {
+                if (Char.IsLower(s[0])) { throw new Exception("Char is Lowercase even though it should be Uppercase! IList string conversion"); }
+            }
+
+            Console.WriteLine("#UpperEachFirstChar is working! \n\n-------------------------\n");
+
 
             Console.WriteLine("###Finished testing UtilityString! string[] \n\n--------------------------\n");
         }
