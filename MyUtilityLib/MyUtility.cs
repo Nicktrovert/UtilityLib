@@ -4,10 +4,10 @@ public static class UtilityMath
 {
 
     /// <summary>
-    /// Checks if a number is odd.
+    /// Checks if a <see cref="int"/> is odd.
     /// </summary>
     /// <param name="Input"></param>
-    /// <returns><see langword="true"/> if Input is Odd and <see langword="false"/> if Input is not Odd.</returns>
+    /// <returns><see langword="true"/> if <paramref name="Input"/> is Odd and <see langword="false"/> if <paramref name="Input"/> is not Odd.</returns>
     public static bool IsOdd(int Input)
     {
 
@@ -23,10 +23,10 @@ public static class UtilityMath
     }
 
     /// <summary>
-    /// Checks if a number is even.
+    /// Checks if a <see cref="int"/> is even.
     /// </summary>
     /// <param name="Input"></param>
-    /// <returns><see langword="true"/> if Input is Even and <see langword="false"/> if Input is not Even.</returns>
+    /// <returns><see langword="true"/> if <paramref name="Input"/> is Even and <see langword="false"/> if <paramref name="Input"/> is not Even.</returns>
     public static bool IsEven(int Input)
     {
 
@@ -42,10 +42,10 @@ public static class UtilityMath
     }
 
     /// <summary>
-    /// Checks if a number is a prime number
+    /// Checks if a <see cref="int"/> is a prime number
     /// </summary>
     /// <param name="Input"></param>
-    /// <returns><see langword="true"/> if Input is a Prime number and <see langword="false"/> if Input is not a Prime number</returns>
+    /// <returns><see langword="true"/> if <paramref name="Input"/> is a Prime number and <see langword="false"/> if <paramref name="Input"/> is not a Prime number</returns>
     public static bool IsPrime(int Input)
     {
 
