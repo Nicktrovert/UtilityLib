@@ -1,11 +1,108 @@
-﻿using System.ComponentModel;
+﻿namespace UtilityLib.MathUnits;
 
-namespace UtilityLib.MathUnits;
+/// <summary>
+/// Represents a generic vector interface.
+/// </summary>
+/// <typeparam name="T">The type of the vector components.</typeparam>
+public interface IVector<T>
+{
+    /// <summary>
+    /// Gets the zero vector for the specified type.
+    /// </summary>
+    T Zero { get; }
+
+    /// <summary>
+    /// Adds two vectors of the specified type.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The sum of the two vectors.</returns>
+    T Add(T v1, T v2);
+
+    /// <summary>
+    /// Subtracts the second vector from the first vector.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The result of subtracting the second vector from the first vector.</returns>
+    T Subtract(T v1, T v2);
+
+    /// <summary>
+    /// Multiplies two vectors of the specified type component-wise.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The result of multiplying two vectors component-wise.</returns>
+    T Multiply(T v1, T v2);
+
+    /// <summary>
+    /// Divides the first vector by the second vector.
+    /// </summary>
+    /// <param name="v1">The numerator vector.</param>
+    /// <param name="v2">The denominator vector.</param>
+    /// <returns>The result of dividing the first vector by the second vector.</returns>
+    T Divide(T v1, T v2);
+
+    /// <summary>
+    /// Gets a vector with components equal to the negation of the original vector.
+    /// </summary>
+    T Inverted { get; }
+
+    /// <summary>
+    /// Gets a vector with the same direction as the original vector but with a length of 1.
+    /// </summary>
+    T Normalized { get; }
+
+    /// <summary>
+    /// Gets the Euclidean length (magnitude) of the vector.
+    /// </summary>
+    double Length { get; }
+
+    /// <summary>
+    /// Adds the components of another vector to this vector.
+    /// </summary>
+    /// <param name="v">The vector to add.</param>
+    /// <returns>The updated vector.</returns>
+    T Add(T v);
+
+    /// <summary>
+    /// Subtracts the components of another vector from this vector.
+    /// </summary>
+    /// <param name="v">The vector to subtract.</param>
+    /// <returns>The updated vector.</returns>
+    T Subtract(T v);
+
+    /// <summary>
+    /// Divides the vector components by the components of another vector.
+    /// </summary>
+    /// <param name="v">The vector to divide by.</param>
+    /// <returns>The updated vector.</returns>
+    T Divide(T v);
+
+    /// <summary>
+    /// Multiplies the vector components by the components of another vector.
+    /// </summary>
+    /// <param name="v">The vector to multiply by.</param>
+    /// <returns>The updated vector.</returns>
+    T Multiply(T v);
+
+    /// <summary>
+    /// Inverts the sign of each vector component.
+    /// </summary>
+    /// <returns>The inverted vector.</returns>
+    T Invert();
+
+    /// <summary>
+    /// Normalizes the vector to have a length of 1.
+    /// </summary>
+    /// <returns>The normalized vector.</returns>
+    T Normalize();
+}
 
 /// <summary>
 /// Represents a 3D vector with <see cref="X"/>, <see cref="Y"/>, and <see cref="Z"/> components.
 /// </summary>
-public class Vector3D
+public class Vector3D : IVector<Vector3D>
 {
     /// <summary>
     /// Gets or sets the <see cref="X"/> component of the vector.
@@ -218,11 +315,10 @@ public class Vector3D
     }
 }
 
-
 /// <summary>
 /// Represents a 2D vector with <see cref="X"/> and <see cref="Y"/> components.
 /// </summary>
-public class Vector2D
+public class Vector2D : IVector<Vector2D>
 {
     /// <summary>
     /// Gets or sets the <see cref="X"/> component of the vector.
@@ -268,6 +364,38 @@ public class Vector2D
             throw new InvalidOperationException("Cannot normalize a vector with zero length.");
         }
     }
+
+    /// <summary>
+    /// Adds two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The sum of the two vectors.</returns>
+    public static Vector2D Add(Vector2D v1, Vector2D v2) => new Vector2D(v1.X + v2.X, v1.Y + v2.Y);
+
+    /// <summary>
+    /// Subtracts the second vector from the first vector.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The result of subtracting the second vector from the first vector.</returns>
+    public static Vector2D Subtract(Vector2D v1, Vector2D v2) => new Vector2D(v1.X - v2.X, v1.Y - v2.Y);
+
+    /// <summary>
+    /// Multiplies two vectors component-wise.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The result of multiplying two vectors component-wise.</returns>
+    public static Vector2D Multiply(Vector2D v1, Vector2D v2) => new Vector2D(v1.X * v2.X, v1.Y * v2.Y);
+
+    /// <summary>
+    /// Divides the first vector by the second vector.
+    /// </summary>
+    /// <param name="v1">The numerator vector.</param>
+    /// <param name="v2">The denominator vector.</param>
+    /// <returns>The result of dividing the first vector by the second vector.</returns>
+    public static Vector2D Divide(Vector2D v1, Vector2D v2) => new Vector2D(v1.X / v2.X, v1.Y / v2.Y);
 
     /// <summary>
     /// Gets the Euclidean length (magnitude) of the vector.
@@ -391,4 +519,5 @@ public class Vector2D
         }
         throw new InvalidOperationException("Cannot normalize a vector with zero length.");
     }
+
 }
