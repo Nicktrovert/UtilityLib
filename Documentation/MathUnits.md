@@ -168,15 +168,11 @@ Represents a 4D vector with X, Y, Z, and W components.
 - `Invert()`: Inverts the sign of each vector component.
 - `Normalize()`: Normalizes the vector to have a length of 1.
 
-## VectorOperations Class
-
-Provides static methods for vector operations. (To Do, ChatGPT added this even though it's not in the code lol)
-
 ### Static Methods
 
-- `DotProduct(Vector3D v1, Vector3D v2)`: Computes the dot product of two 3D vectors. (To Do, ChatGPT added this even though it's not in the code lol)
-- `CrossProduct(Vector3D v1, Vector3D v2)`: Computes the cross product of two 3D vectors. (To Do, ChatGPT added this even though it's not in the code lol)
-- `AngleBetween(Vector3D v1, Vector3D v2)`: Computes the angle (in radians) between two 3D vectors. (To Do, ChatGPT added this even though it's not in the code lol)
+- `DotProduct(IVector v1, IVector v2)`: Computes the dot product of two vectors.
+- `CrossProduct(Vector3D v1, Vector3D v2)`: Computes the cross product of two 3D vectors.
+- `AngleBetween(IVector v1, IVector v2)`: Computes the angle (in radians) between two vectors.
 
 # Conclusion
 
