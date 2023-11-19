@@ -44,6 +44,22 @@ public interface IVector<T>
     public abstract static T Divide(T v1, T v2);
 
     /// <summary>
+    /// Calculates the dot product of two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The dot product of the two vectors.</returns>
+    public abstract static double DotProduct(T v1, T v2);
+
+    /// <summary>
+    /// Calculates the angle (in radians) between two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The angle (in radians) between the two vectors.</returns>
+    public abstract static double AngleBetween(T v1, T v2);
+
+    /// <summary>
     /// Gets a vector with components equal to the negation of the original vector.
     /// </summary>
     T Inverted { get; }
@@ -155,6 +171,49 @@ public class Vector3D : IVector<Vector3D>
     /// <param name="v2">The second vector.</param>
     /// <returns>The result of multiplying two vectors component-wise.</returns>
     public static Vector3D Multiply(Vector3D v1, Vector3D v2) => new Vector3D(v1.X * v2.X, v1.Y * v2.Y, v1.Z * v2.Z);
+
+    /// <summary>
+    /// Calculates the dot product of two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The dot product of the two vectors.</returns>
+    public static double DotProduct(Vector3D v1, Vector3D v2) => v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z;
+
+    /// <summary>
+    /// Calculates the cross product of two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The cross product of the two vectors.</returns>
+    public static Vector3D CrossProduct(Vector3D v1, Vector3D v2) =>
+        new Vector3D(
+            v1.Y * v2.Z - v1.Z * v2.Y,
+            v1.Z * v2.X - v1.X * v2.Z,
+            v1.X * v2.Y - v1.Y * v2.X
+        );
+
+    /// <summary>
+    /// Calculates the angle (in radians) between two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The angle (in radians) between the two vectors.</returns>
+    public static double AngleBetween(Vector3D v1, Vector3D v2)
+    {
+        double dotProduct = DotProduct(v1, v2);
+        double magnitudeProduct = v1.Length * v2.Length;
+
+        // Ensure the denominator is not zero
+        if (magnitudeProduct != 0)
+        {
+            double cosTheta = dotProduct / magnitudeProduct;
+            return Math.Acos(cosTheta);
+        }
+
+        // If the magnitude product is zero, the vectors are not well-defined
+        throw new InvalidOperationException("Cannot calculate the angle between vectors with zero magnitude.");
+    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Vector3D"/> class with specified components.
@@ -398,6 +457,36 @@ public class Vector2D : IVector<Vector2D>
     public static Vector2D Divide(Vector2D v1, Vector2D v2) => new Vector2D(v1.X / v2.X, v1.Y / v2.Y);
 
     /// <summary>
+    /// Calculates the dot product of two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The dot product of the two vectors.</returns>
+    public static double DotProduct(Vector2D v1, Vector2D v2) => v1.X * v2.X + v1.Y * v2.Y;
+
+    /// <summary>
+    /// Calculates the angle (in radians) between two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The angle (in radians) between the two vectors.</returns>
+    public static double AngleBetween(Vector2D v1, Vector2D v2)
+    {
+        double dotProduct = DotProduct(v1, v2);
+        double magnitudeProduct = v1.Length * v2.Length;
+
+        // Ensure the denominator is not zero
+        if (magnitudeProduct != 0)
+        {
+            double cosTheta = dotProduct / magnitudeProduct;
+            return Math.Acos(cosTheta);
+        }
+
+        // If the magnitude product is zero, the vectors are not well-defined
+        throw new InvalidOperationException("Cannot calculate the angle between vectors with zero magnitude.");
+    }
+
+    /// <summary>
     /// Gets the Euclidean length (magnitude) of the vector.
     /// </summary>
     /// <returns>The length of the vector.</returns>
@@ -519,7 +608,6 @@ public class Vector2D : IVector<Vector2D>
         }
         throw new InvalidOperationException("Cannot normalize a vector with zero length.");
     }
-
 }
 
 /// <summary>
@@ -710,4 +798,35 @@ public class Vector4D : IVector<Vector4D>
     /// <param name="v">The vector to subtract.</param>
     /// <returns>The updated vector.</returns>
     public Vector4D Subtract(Vector4D v) { X -= v.X; Y -= v.Y; Z -= v.Z; W -= v.W; return this; }
+
+    /// <summary>
+    /// Calculates the dot product of two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The dot product of the two vectors.</returns>
+    public static double DotProduct(Vector4D v1, Vector4D v2) => v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z + v1.W * v2.W;
+
+    /// <summary>
+    /// Calculates the angle (in radians) between two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The angle (in radians) between the two vectors.</returns>
+    public static double AngleBetween(Vector4D v1, Vector4D v2)
+    {
+        double dotProduct = DotProduct(v1, v2);
+        double magnitudeProduct = v1.Length * v2.Length;
+
+        // Ensure the denominator is not zero
+        if (magnitudeProduct != 0)
+        {
+            double cosTheta = dotProduct / magnitudeProduct;
+            return Math.Acos(cosTheta);
+        }
+
+        // If the magnitude product is zero, the vectors are not well-defined
+        throw new InvalidOperationException("Cannot calculate the angle between vectors with zero magnitude.");
+    }
+
 }

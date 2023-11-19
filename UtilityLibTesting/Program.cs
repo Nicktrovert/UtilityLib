@@ -1,6 +1,7 @@
 ﻿using UtilityLib.UMath;
 using UtilityLib.UString;
 using UtilityLib.MathUnits;
+using System.Numerics;
 
 namespace UtilityLibTesting
 {
@@ -33,6 +34,13 @@ namespace UtilityLibTesting
 
             Vector4D v1 = new Vector4D(1, 2, 3, 4);
             Vector4D v2 = new Vector4D(2, 3, 4, 5);
+
+            double dotProduct = Vector4D.DotProduct(v1, v2);
+            if (dotProduct != 40)
+                throw new Exception("Vector4D dot product test failed!");
+
+            double angle = Vector4D.AngleBetween(v1, v2);
+            Console.WriteLine("Angle between vectors (in radians): " + angle);
 
             // Test addition
             Vector4D sum = Vector4D.Add(v1, v2);
@@ -86,6 +94,15 @@ namespace UtilityLibTesting
             vec1.Add(vec2);
             Console.WriteLine($"Vector1 after addition: {vec1.X}, {vec1.Y}, {vec1.Z}");
             AssertVector3D(vec1, 2, 3, 0.7);
+
+            double dotProduct = Vector3D.DotProduct(vec1, vec2);
+            Console.WriteLine("Dot Product: " + dotProduct);
+
+            Vector3D crossProduct = Vector3D.CrossProduct(vec1, vec2);
+            AssertVector3D(crossProduct, -0.1, -0.05, 0.5);
+
+            double angle = Vector3D.AngleBetween(vec1, vec2);
+            Console.WriteLine("Angle between vectors (in radians): " + angle);
 
             // Test vector subtraction
             Vector3D vec3 = new Vector3D(1, 2, 0.2);
@@ -143,6 +160,12 @@ namespace UtilityLibTesting
             vec1.Add(vec2);
             Console.WriteLine($"Vector1 after addition: {vec1.X}, {vec1.Y}");
             AssertVector2D(vec1, 2, 3);
+
+            double dotProduct = Vector2D.DotProduct(vec1, vec2);
+            Console.WriteLine("Dot Product: " + dotProduct);
+
+            double angle = Vector2D.AngleBetween(vec1, vec2);
+            Console.WriteLine("Angle between vectors (in radians): " + angle);
 
             // Test vector subtraction
             Vector2D vec3 = new Vector2D(1, 2);
