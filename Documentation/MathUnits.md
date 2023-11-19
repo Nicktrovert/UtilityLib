@@ -176,6 +176,6 @@ Represents a 4D vector with X, Y, Z, and W components.
 
 # Conclusion
 
-The `MathUnits` namespace provides a flexible and comprehensive set of classes and interfaces for working with vectors in both 2D and 3D space. The `IVector<T>` interface defines common vector operations, and the `Vector2D`, `Vector3D`, and `Vector4D` classes implement these operations for 2D, 3D, and 4D vectors, respectively. The `VectorOperations` class contains additional static methods for performing vector-specific operations. These classes can be used in various mathematical and computational scenarios where vector manipulation is required.
+The `MathUnits` namespace provides a flexible and comprehensive set of classes and interfaces for working with vectors in both 2D and 3D space. The `IVector<T>` interface defines common vector operations, and the `Vector2D`, `Vector3D`, and `Vector4D` classes implement these operations for 2D, 3D, and 4D vectors, respectively.
 
 For more detailed usage examples and guidelines, refer to the inline comments in the source code.
