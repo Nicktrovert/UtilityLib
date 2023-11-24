@@ -168,18 +168,14 @@ Represents a 4D vector with X, Y, Z, and W components.
 - `Invert()`: Inverts the sign of each vector component.
 - `Normalize()`: Normalizes the vector to have a length of 1.
 
-## VectorOperations Class
-
-Provides static methods for vector operations. (To Do, ChatGPT added this even though it's not in the code lol)
-
 ### Static Methods
 
-- `DotProduct(Vector3D v1, Vector3D v2)`: Computes the dot product of two 3D vectors. (To Do, ChatGPT added this even though it's not in the code lol)
-- `CrossProduct(Vector3D v1, Vector3D v2)`: Computes the cross product of two 3D vectors. (To Do, ChatGPT added this even though it's not in the code lol)
-- `AngleBetween(Vector3D v1, Vector3D v2)`: Computes the angle (in radians) between two 3D vectors. (To Do, ChatGPT added this even though it's not in the code lol)
+- `DotProduct(IVector v1, IVector v2)`: Computes the dot product of two vectors.
+- `CrossProduct(Vector3D v1, Vector3D v2)`: Computes the cross product of two 3D vectors.
+- `AngleBetween(IVector v1, IVector v2)`: Computes the angle (in radians) between two vectors.
 
 # Conclusion
 
-The `MathUnits` namespace provides a flexible and comprehensive set of classes and interfaces for working with vectors in both 2D and 3D space. The `IVector<T>` interface defines common vector operations, and the `Vector2D`, `Vector3D`, and `Vector4D` classes implement these operations for 2D, 3D, and 4D vectors, respectively. The `VectorOperations` class contains additional static methods for performing vector-specific operations. These classes can be used in various mathematical and computational scenarios where vector manipulation is required.
+The `MathUnits` namespace provides a flexible and comprehensive set of classes and interfaces for working with vectors in both 2D and 3D space. The `IVector<T>` interface defines common vector operations, and the `Vector2D`, `Vector3D`, and `Vector4D` classes implement these operations for 2D, 3D, and 4D vectors, respectively.
 
 For more detailed usage examples and guidelines, refer to the inline comments in the source code.
