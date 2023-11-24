@@ -1,7 +1,6 @@
 ﻿using UtilityLib.UMath;
 using UtilityLib.UString;
 using UtilityLib.MathUnits;
-using System.Numerics;
 
 namespace UtilityLibTesting
 {
