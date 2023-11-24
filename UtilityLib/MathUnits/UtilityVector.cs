@@ -17,7 +17,7 @@ public interface IVector<T>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The sum of the two vectors.</returns>
-    public abstract static T Add(T v1, T v2);
+    public static abstract T Add(T v1, T v2);
 
     /// <summary>
     /// Subtracts the second vector from the first vector.
@@ -25,7 +25,7 @@ public interface IVector<T>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The result of subtracting the second vector from the first vector.</returns>
-    public abstract static T Subtract(T v1, T v2);
+    public static abstract T Subtract(T v1, T v2);
 
     /// <summary>
     /// Multiplies two vectors of the specified type component-wise.
@@ -33,7 +33,7 @@ public interface IVector<T>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The result of multiplying two vectors component-wise.</returns>
-    public abstract static T Multiply(T v1, T v2);
+    public static abstract T Multiply(T v1, T v2);
 
     /// <summary>
     /// Divides the first vector by the second vector.
@@ -41,7 +41,7 @@ public interface IVector<T>
     /// <param name="v1">The numerator vector.</param>
     /// <param name="v2">The denominator vector.</param>
     /// <returns>The result of dividing the first vector by the second vector.</returns>
-    public abstract static T Divide(T v1, T v2);
+    public static abstract T Divide(T v1, T v2);
 
     /// <summary>
     /// Calculates the dot product of two vectors.
@@ -49,7 +49,7 @@ public interface IVector<T>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The dot product of the two vectors.</returns>
-    public abstract static double DotProduct(T v1, T v2);
+    public static abstract double DotProduct(T v1, T v2);
 
     /// <summary>
     /// Calculates the angle (in radians) between two vectors.
@@ -57,7 +57,7 @@ public interface IVector<T>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The angle (in radians) between the two vectors.</returns>
-    public abstract static double AngleBetween(T v1, T v2);
+    public static abstract double AngleBetween(T v1, T v2);
 
     /// <summary>
     /// Gets a vector with components equal to the negation of the original vector.
@@ -138,7 +138,7 @@ public class Vector3D : IVector<Vector3D>
     /// <summary>
     /// Gets a vector with all components set to zero.
     /// </summary>
-    public static Vector3D Zero => new Vector3D(0, 0, 0);
+    public static Vector3D Zero => new(0, 0, 0);
 
     /// <summary>
     /// Adds two vectors.
@@ -146,7 +146,7 @@ public class Vector3D : IVector<Vector3D>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The sum of the two vectors.</returns>
-    public static Vector3D Add(Vector3D v1, Vector3D v2) => new Vector3D(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
+    public static Vector3D Add(Vector3D v1, Vector3D v2) => new(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
 
     /// <summary>
     /// Subtracts the second vector from the first vector.
@@ -154,7 +154,7 @@ public class Vector3D : IVector<Vector3D>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The result of subtracting the second vector from the first vector.</returns>
-    public static Vector3D Subtract(Vector3D v1, Vector3D v2) => new Vector3D(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z);
+    public static Vector3D Subtract(Vector3D v1, Vector3D v2) => new(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z);
 
     /// <summary>
     /// Divides the first vector by the second vector.
@@ -162,7 +162,7 @@ public class Vector3D : IVector<Vector3D>
     /// <param name="v1">The numerator vector.</param>
     /// <param name="v2">The denominator vector.</param>
     /// <returns>The result of dividing the first vector by the second vector.</returns>
-    public static Vector3D Divide(Vector3D v1, Vector3D v2) => new Vector3D(v1.X / v2.X, v1.Y / v2.Y, v1.Z / v2.Z);
+    public static Vector3D Divide(Vector3D v1, Vector3D v2) => new(v1.X / v2.X, v1.Y / v2.Y, v1.Z / v2.Z);
 
     /// <summary>
     /// Multiplies two vectors component-wise.
@@ -170,7 +170,7 @@ public class Vector3D : IVector<Vector3D>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The result of multiplying two vectors component-wise.</returns>
-    public static Vector3D Multiply(Vector3D v1, Vector3D v2) => new Vector3D(v1.X * v2.X, v1.Y * v2.Y, v1.Z * v2.Z);
+    public static Vector3D Multiply(Vector3D v1, Vector3D v2) => new(v1.X * v2.X, v1.Y * v2.Y, v1.Z * v2.Z);
 
     /// <summary>
     /// Calculates the dot product of two vectors.
@@ -187,7 +187,7 @@ public class Vector3D : IVector<Vector3D>
     /// <param name="v2">The second vector.</param>
     /// <returns>The cross product of the two vectors.</returns>
     public static Vector3D CrossProduct(Vector3D v1, Vector3D v2) =>
-        new Vector3D(
+        new(
             v1.Y * v2.Z - v1.Z * v2.Y,
             v1.Z * v2.X - v1.X * v2.Z,
             v1.X * v2.Y - v1.Y * v2.X
@@ -201,18 +201,15 @@ public class Vector3D : IVector<Vector3D>
     /// <returns>The angle (in radians) between the two vectors.</returns>
     public static double AngleBetween(Vector3D v1, Vector3D v2)
     {
-        double dotProduct = DotProduct(v1, v2);
-        double magnitudeProduct = v1.Length * v2.Length;
+        var dotProduct = DotProduct(v1, v2);
+        var magnitudeProduct = v1.Length * v2.Length;
 
         // Ensure the denominator is not zero
-        if (magnitudeProduct != 0)
-        {
-            double cosTheta = dotProduct / magnitudeProduct;
-            return Math.Acos(cosTheta);
-        }
+        if (magnitudeProduct == 0) throw new InvalidOperationException("Cannot calculate the angle between vectors with zero magnitude.");
+        var cosTheta = dotProduct / magnitudeProduct;
+        return Math.Acos(cosTheta);
 
         // If the magnitude product is zero, the vectors are not well-defined
-        throw new InvalidOperationException("Cannot calculate the angle between vectors with zero magnitude.");
     }
 
     /// <summary>
@@ -227,7 +224,7 @@ public class Vector3D : IVector<Vector3D>
     /// Gets a vector with components equal to the negation of the original vector.
     /// </summary>
     /// <returns>The inverted vector.</returns>
-    public Vector3D Inverted => new Vector3D(-X, -Y, -Z);
+    public Vector3D Inverted => new(-X, -Y, -Z);
 
     /// <summary>
     /// Gets a vector with the same direction as the original vector but with a length of 1.
@@ -364,13 +361,10 @@ public class Vector3D : IVector<Vector3D>
     /// <returns>The normalized vector.</returns>
     public Vector3D Normalize()
     {
-        double length = Length;
-        if (length != 0)
-        {
-            X *= 1.0 / length; Y *= 1.0 / length; Z *= 1.0 / length;
-            return this;
-        }
-        throw new InvalidOperationException("Cannot normalize a vector with zero length.");
+        var length = Length;
+        if (length == 0) throw new InvalidOperationException("Cannot normalize a vector with zero length.");
+        X *= 1.0 / length; Y *= 1.0 / length; Z *= 1.0 / length;
+        return this;
     }
 }
 
@@ -392,7 +386,7 @@ public class Vector2D : IVector<Vector2D>
     /// <summary>
     /// Gets a vector with all components set to zero.
     /// </summary>
-    public static Vector2D Zero => new Vector2D(0, 0);
+    public static Vector2D Zero => new(0, 0);
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Vector2D"/> class with specified components.
@@ -405,7 +399,7 @@ public class Vector2D : IVector<Vector2D>
     /// Gets a vector with components equal to the negation of the original vector.
     /// </summary>
     /// <returns>The inverted vector.</returns>
-    public Vector2D Inverted => new Vector2D(-X, -Y);
+    public Vector2D Inverted => new(-X, -Y);
 
     /// <summary>
     /// Gets a vector with the same direction as the original vector but with a length of 1.
@@ -430,7 +424,7 @@ public class Vector2D : IVector<Vector2D>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The sum of the two vectors.</returns>
-    public static Vector2D Add(Vector2D v1, Vector2D v2) => new Vector2D(v1.X + v2.X, v1.Y + v2.Y);
+    public static Vector2D Add(Vector2D v1, Vector2D v2) => new(v1.X + v2.X, v1.Y + v2.Y);
 
     /// <summary>
     /// Subtracts the second vector from the first vector.
@@ -438,7 +432,7 @@ public class Vector2D : IVector<Vector2D>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The result of subtracting the second vector from the first vector.</returns>
-    public static Vector2D Subtract(Vector2D v1, Vector2D v2) => new Vector2D(v1.X - v2.X, v1.Y - v2.Y);
+    public static Vector2D Subtract(Vector2D v1, Vector2D v2) => new(v1.X - v2.X, v1.Y - v2.Y);
 
     /// <summary>
     /// Multiplies two vectors component-wise.
@@ -446,7 +440,7 @@ public class Vector2D : IVector<Vector2D>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The result of multiplying two vectors component-wise.</returns>
-    public static Vector2D Multiply(Vector2D v1, Vector2D v2) => new Vector2D(v1.X * v2.X, v1.Y * v2.Y);
+    public static Vector2D Multiply(Vector2D v1, Vector2D v2) => new(v1.X * v2.X, v1.Y * v2.Y);
 
     /// <summary>
     /// Divides the first vector by the second vector.
@@ -454,7 +448,7 @@ public class Vector2D : IVector<Vector2D>
     /// <param name="v1">The numerator vector.</param>
     /// <param name="v2">The denominator vector.</param>
     /// <returns>The result of dividing the first vector by the second vector.</returns>
-    public static Vector2D Divide(Vector2D v1, Vector2D v2) => new Vector2D(v1.X / v2.X, v1.Y / v2.Y);
+    public static Vector2D Divide(Vector2D v1, Vector2D v2) => new(v1.X / v2.X, v1.Y / v2.Y);
 
     /// <summary>
     /// Calculates the dot product of two vectors.
@@ -472,18 +466,15 @@ public class Vector2D : IVector<Vector2D>
     /// <returns>The angle (in radians) between the two vectors.</returns>
     public static double AngleBetween(Vector2D v1, Vector2D v2)
     {
-        double dotProduct = DotProduct(v1, v2);
-        double magnitudeProduct = v1.Length * v2.Length;
+        var dotProduct = DotProduct(v1, v2);
+        var magnitudeProduct = v1.Length * v2.Length;
 
         // Ensure the denominator is not zero
-        if (magnitudeProduct != 0)
-        {
-            double cosTheta = dotProduct / magnitudeProduct;
-            return Math.Acos(cosTheta);
-        }
+        if (magnitudeProduct == 0) throw new InvalidOperationException("Cannot calculate the angle between vectors with zero magnitude.");
+        var cosTheta = dotProduct / magnitudeProduct;
+        return Math.Acos(cosTheta);
 
         // If the magnitude product is zero, the vectors are not well-defined
-        throw new InvalidOperationException("Cannot calculate the angle between vectors with zero magnitude.");
     }
 
     /// <summary>
@@ -618,7 +609,7 @@ public class Vector4D : IVector<Vector4D>
     /// <summary>
     /// Gets a vector with all components set to zero.
     /// </summary>
-    public static Vector4D Zero => new Vector4D(0, 0, 0, 0);
+    public static Vector4D Zero => new(0, 0, 0, 0);
 
     /// <summary>
     /// Gets or sets the X component of the vector.
@@ -653,7 +644,7 @@ public class Vector4D : IVector<Vector4D>
     /// Gets a vector with components equal to the negation of the original vector.
     /// </summary>
     /// <returns>The inverted vector.</returns>
-    public Vector4D Inverted => new Vector4D(X * -1, Y * -1, Z * -1, W * -1);
+    public Vector4D Inverted => new(X * -1, Y * -1, Z * -1, W * -1);
 
     /// <summary>
     /// Gets a vector with the same direction as the original vector but with a length of 1.
@@ -663,7 +654,7 @@ public class Vector4D : IVector<Vector4D>
     {
         get
         {
-            double length = Length;
+            var length = Length;
             if (length != 0)
             {
                 return new Vector4D(X * (1.0 / length), Y * (1.0 / length), Z * (1.0 / length), W * (1.0 / length));
@@ -684,7 +675,7 @@ public class Vector4D : IVector<Vector4D>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The sum of the two vectors.</returns>
-    public static Vector4D Add(Vector4D v1, Vector4D v2) => new Vector4D(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z, v1.W + v2.W);
+    public static Vector4D Add(Vector4D v1, Vector4D v2) => new(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z, v1.W + v2.W);
 
     /// <summary>
     /// Adds the specified values to the vector components.
@@ -709,7 +700,7 @@ public class Vector4D : IVector<Vector4D>
     /// <param name="v1">The numerator vector.</param>
     /// <param name="v2">The denominator vector.</param>
     /// <returns>The result of dividing the first vector by the second vector.</returns>
-    public static Vector4D Divide(Vector4D v1, Vector4D v2) => new Vector4D(v1.X / v2.X, v1.Y / v2.Y, v1.Z / v2.Z, v1.W / v2.W);
+    public static Vector4D Divide(Vector4D v1, Vector4D v2) => new(v1.X / v2.X, v1.Y / v2.Y, v1.Z / v2.Z, v1.W / v2.W);
 
     /// <summary>
     /// Divides the vector components by the specified values.
@@ -740,7 +731,7 @@ public class Vector4D : IVector<Vector4D>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The result of multiplying two vectors component-wise.</returns>
-    public static Vector4D Multiply(Vector4D v1, Vector4D v2) => new Vector4D(v1.X * v2.X, v1.Y * v2.Y, v1.Z * v2.Z, v1.W * v2.W);
+    public static Vector4D Multiply(Vector4D v1, Vector4D v2) => new(v1.X * v2.X, v1.Y * v2.Y, v1.Z * v2.Z, v1.W * v2.W);
 
     /// <summary>
     /// Multiplies the vector components by the specified values.
@@ -780,7 +771,7 @@ public class Vector4D : IVector<Vector4D>
     /// <param name="v1">The first vector.</param>
     /// <param name="v2">The second vector.</param>
     /// <returns>The result of subtracting the second vector from the first vector.</returns>
-    public static Vector4D Subtract(Vector4D v1, Vector4D v2) => new Vector4D(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z, v1.W - v2.W);
+    public static Vector4D Subtract(Vector4D v1, Vector4D v2) => new(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z, v1.W - v2.W);
 
     /// <summary>
     /// Subtracts the specified values from the vector components.

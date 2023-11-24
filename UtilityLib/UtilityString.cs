@@ -14,15 +14,13 @@ public static class UtilityString
     /// <returns><see cref="string"/> with the first letter in uppercase.</returns>
     public static string UpperFirstChar(string input)
     {
-        char[] chars = input.ToCharArray();
+        var chars = input.ToCharArray();
 
         for (int i = 0; i < input.Length; i++)
         {
-            if (Char.IsLetter(chars[i]))
-            {
-                chars[i] = Char.ToUpper(chars[i]);
-                break;
-            }
+            if (!char.IsLetter(chars[i])) continue;
+            chars[i] = char.ToUpper(chars[i]);
+            break;
         }
 
         return new string(chars);
@@ -48,25 +46,15 @@ public static class UtilityString
     {
         string[] splitString;
 
-        if (SymbolsAsWordSeperators)
-        {
-            // Split by both spaces and symbols
-            splitString = Regex.Split(input, @"(?<=[^\w\s])|(?=[^\w\s])");
-        }
-        else
-        {
-            // Preserve spaces by using StringSplitOptions.None
-            splitString = input.Split(new[] { ' ' }, StringSplitOptions.None);
-        }
+        // Split by both spaces and symbols or just spaces
+        splitString = SymbolsAsWordSeperators ? Regex.Split(input, @"(?<=[^\w\s])|(?=[^\w\s])") : input.Split(new[] { ' ' }, StringSplitOptions.None);
 
         for (int i = 0; i < splitString.Length; i++)
         {
             splitString[i] = UpperFirstChar(splitString[i]);
         }
 
-        if (SymbolsAsWordSeperators) { return string.Join("", splitString); }
-        else { return string.Join(" ", splitString); }
-
+        return string.Join(SymbolsAsWordSeperators ? "" : " ", splitString);
     }
 
     /// <summary>
