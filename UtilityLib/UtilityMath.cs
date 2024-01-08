@@ -48,4 +48,33 @@ public static class UtilityMath
 
         return true;
     }
+
+    /// <summary>
+    /// Checks if an <see cref="int"/> is a fibonacci number.
+    /// </summary>
+    /// <param name="input">The integer to check.</param>
+    /// <returns><c>true</c> if <paramref name="input"/> is a fibonacci number; otherwise, <c>false</c>.</returns>
+    public static bool IsFibonacci(int input)
+    {
+        int a = 0;
+        int b = 1;
+
+        if (input <= 2)
+        {
+            return true;
+        }
+
+        while (input >= a)
+        {
+            int c = b;
+            b = a + b;
+            a = c;
+            if (input == b)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
