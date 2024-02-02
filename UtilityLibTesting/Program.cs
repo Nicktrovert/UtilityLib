@@ -1,6 +1,6 @@
 ﻿using UtilityLib.UMath;
 using UtilityLib.UString;
-using UtilityLib.MathUnits;
+using UtilityLib.UDataTypes;
 
 namespace UtilityLibTesting
 {
@@ -24,7 +24,6 @@ namespace UtilityLibTesting
             TestVector2D();
 
             TestVector4D();
-
         }
 
         public static void TestVector4D()

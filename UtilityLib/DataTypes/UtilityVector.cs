@@ -1,4 +1,4 @@
-﻿namespace UtilityLib.MathUnits;
+﻿namespace UtilityLib.UDataTypes;
 
 /// <summary>
 /// Represents a generic vector interface.
