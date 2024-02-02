@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace UtilityLib.UDataTypes.UList;
+namespace UtilityLib.UDataTypes;
 
 public class UList<T> : IEnumerable
 {
