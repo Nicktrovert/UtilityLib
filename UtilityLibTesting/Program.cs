@@ -1,6 +1,7 @@
 ﻿using UtilityLib.UMath;
 using UtilityLib.UString;
-using UtilityLib.UDataTypes;
+using UtilityLib.UDataTypes.UVector;
+using UtilityLib.UDataTypes.UList;
 
 namespace UtilityLibTesting
 {
@@ -24,6 +25,8 @@ namespace UtilityLibTesting
             TestVector2D();
 
             TestVector4D();
+
+            UListTesting.UListMain();
         }
 
         public static void TestVector4D()
