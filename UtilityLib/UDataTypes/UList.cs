@@ -90,6 +90,32 @@ public class UList<T> : IEnumerable
         
         return amount;
     }
+
+    public void RemoveAt(int index)
+    {
+        if (index >= _content.Length)
+        {
+            throw new IndexOutOfRangeException();
+        }
+
+        T[] newlist = new T[_content.Length - 1];
+
+        int ioffset = 0;
+
+        for (int i = 0; i < _content.Length; i++)
+        {
+            if (i != index)
+            {
+                newlist[i - ioffset] = _content[i];
+            }
+            else
+            {
+                ioffset++;
+            }
+        }
+
+        _content = newlist;
+    }
     
     public void Remove(T obj, bool DeleteAll = false)
     {
