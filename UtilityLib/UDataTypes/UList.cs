@@ -2,7 +2,7 @@
 
 namespace UtilityLib.UDataTypes;
 
-public class UList<T> : IEnumerable
+public struct UList<T> : IEnumerable
 {
     private T[] _content;
 
@@ -158,9 +158,9 @@ public class UList<T> : IEnumerable
     }
 }
 
-public class UListEnum<T> : IEnumerator
+public struct UListEnum<T> : IEnumerator
 {
-    public T[] _objects;
+    private T[] _objects;
 
     private int position = -1;
 
