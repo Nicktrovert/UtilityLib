@@ -6,12 +6,10 @@ again.
 
 # [Documentation:](Documentation)
 
----
 ## - [DataTypes](Documentation/DataTypes)
 - [UtilityVector](Documentation/DataTypes/UtilityVector.md)
 - [UtilityVector](Documentation/DataTypes/UtilityList.md)
 
----
 ## - [Other](Documentation)
 - [UtilityString](Documentation/UtilityString.md)
 - [UtilityMath](Documentation/UtilityMath.md)
