@@ -1,6 +1,5 @@
 # UList Namespace Documentation
 
----
 ## UList<T> struct
 Represents a generic List structure.
 
@@ -22,7 +21,6 @@ or all`DeleteAll = true` instances of `T` `obj` from the `List`.
 - `UList()`: Initializes a new **empty** `UList`.
 - `UList(T[] objs)`: Initializes a new `UList` with `T[]` `objs` in it.
 
----
 ## Examples:
 
 - ### Empty List Initialization
@@ -37,6 +35,7 @@ or all`DeleteAll = true` instances of `T` `obj` from the `List`.
     ```
   
 ---
+
 - ### List Initialization with elements
     ```C#
         using UtilityLib.UDataTypes;
