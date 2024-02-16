@@ -29,7 +29,7 @@ or all`DeleteAll = true` instances of `T` `obj` from the `List`.
   
   ...
   
-  public void Main(String[] args){
+  static void Main(String[] args){
     UList<int> MyList = new UList<int>();
   }
   ```
@@ -42,7 +42,7 @@ or all`DeleteAll = true` instances of `T` `obj` from the `List`.
   
   ...
   
-  public void Main(String[] args){
+  static void Main(String[] args){
     int[] IntArray = new int[5] {0, 1, 2, 3, 4};
     UList<int> MyList = new UList<int>(IntArray);
   }
