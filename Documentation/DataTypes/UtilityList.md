@@ -24,26 +24,26 @@ or all`DeleteAll = true` instances of `T` `obj` from the `List`.
 ## Examples:
 
 - ### Empty List Initialization
-    ```C#
-        using UtilityLib.UDataTypes;
+  ```C#
+  using UtilityLib.UDataTypes;
   
-        ...
+  ...
   
-        public void Main(String[] args){
-            UList<int> MyList = new UList<int>();
-        }
-    ```
+  public void Main(String[] args){
+    UList<int> MyList = new UList<int>();
+  }
+  ```
   
 ---
 
 - ### List Initialization with elements
-    ```C#
-        using UtilityLib.UDataTypes;
+  ```C#
+  using UtilityLib.UDataTypes;
   
-        ...
+  ...
   
-        public void Main(String[] args){
-            int[] IntArray = new int[5] {0, 1, 2, 3, 4};
-            UList<int> MyList = new UList<int>(IntArray);
-        }
-    ```
+  public void Main(String[] args){
+    int[] IntArray = new int[5] {0, 1, 2, 3, 4};
+    UList<int> MyList = new UList<int>(IntArray);
+  }
+  ```
