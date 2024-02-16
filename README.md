@@ -10,6 +10,6 @@ again.
 - [UtilityVector](Documentation/DataTypes/UtilityVector.md)
 - [UtilityList](Documentation/DataTypes/UtilityList.md)
 
-## - [Other](Documentation)
-- [UtilityString](Documentation/UtilityString.md)
-- [UtilityMath](Documentation/UtilityMath.md)
+## - [Other](Documentation/Other)
+- [UtilityString](Documentation/Other/UtilityString.md)
+- [UtilityMath](Documentation/Other/UtilityMath.md)
