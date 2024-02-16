@@ -1,11 +1,17 @@
-# UtilityLib
+# [UtilityLib](UtilityLib)
 
-Just a small thing i am creating to learn and get better at coding and maybe prevent myself from writing the same stuff over and over again.
+Just a small thing I am creating to learn and get better at coding
+and maybe prevent myself from writing the same stuff over and over
+again.
 
-### [Documentation:](Documentation)
+# [Documentation:](Documentation)
 
--[UtilityMath](Documentation/UtilityMath.md)
+---
+## - [DataTypes](Documentation/DataTypes)
+- [UtilityVector](Documentation/DataTypes/UtilityVector.md)
+- [UtilityVector](Documentation/DataTypes/UtilityList.md)
 
--[UtilityString](Documentation/UtilityString.md)
-
--[MathUnits](Documentation/MathUnits.md)
+---
+## - [Other](Documentation)
+- [UtilityString](Documentation/UtilityString.md)
+- [UtilityMath](Documentation/UtilityMath.md)
