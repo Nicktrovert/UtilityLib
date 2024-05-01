@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 
-namespace UtilityLib.UDataTypes;
+namespace UtilityLib.UDataTypes.UList;
 
-public struct UList<T> : IEnumerable
+public partial struct UList<T>
 {
     private T[] _content;
 
@@ -12,10 +12,7 @@ public struct UList<T> : IEnumerable
         set => _content[index] = value;
     }
     
-    public UList()
-    {
-        _content = new T[0];
-    }
+    public UList() => _content = new T[0];
 
     public UList(T[] objects)
     {
@@ -61,21 +58,9 @@ public struct UList<T> : IEnumerable
         _content = newlist;
     }
 
-    public int Size
-    {
-        get => _content.Length;
-        set => throw new NotSupportedException();
-    }
-    public int Length
-    {
-        get => _content.Length;
-        set => throw new NotSupportedException();
-    }
-    public int Count
-    {
-        get => _content.Length;
-        set => throw new NotSupportedException();
-    }
+    public int Size => _content.Length;
+    public int Length => _content.Length;
+    public int Count => _content.Length;
 
     public int GetAmountOf(T obj)
     {
@@ -145,61 +130,5 @@ public struct UList<T> : IEnumerable
         }
 
         _content = newlist;
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return (IEnumerator) GetEnumerator();
-    }
-    
-    public UListEnum<T> GetEnumerator()
-    {
-        return new UListEnum<T>(_content);
-    }
-}
-
-public struct UListEnum<T> : IEnumerator
-{
-    private T[] _objects;
-
-    private int position = -1;
-
-    public UListEnum(T[] list)
-    {
-        _objects = list;
-    }
-    
-    public bool MoveNext()
-    {
-        position++;
-        return (position < _objects.Length);
-    }
-
-    public void Reset()
-    {
-        position = -1;
-    }
-
-    object IEnumerator.Current
-    {
-        get
-        {
-            return Current;
-        }
-    }
-
-    public T Current
-    {
-        get
-        {
-            try
-            {
-                return _objects[position];
-            }
-            catch (IndexOutOfRangeException)
-            {
-                throw new InvalidOperationException();
-            }
-        }
     }
 }
