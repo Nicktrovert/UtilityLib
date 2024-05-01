@@ -8,7 +8,6 @@ namespace UtilityLibTesting
     {
         static void Main(string[] args)
         {
-
             TestUtilityMath(999999);
 
             TestUtilityString("test");
@@ -26,6 +25,8 @@ namespace UtilityLibTesting
             TestVector4D();
 
             UListTesting.UListMain();
+            
+            UTemperatureTesting.UTemperatureMain();
         }
 
         public static void TestVector4D()
