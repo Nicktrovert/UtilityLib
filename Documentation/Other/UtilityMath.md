@@ -42,6 +42,18 @@ Checks if an integer is a prime number.
 
 - `bool`: `true` if the input is a prime number; otherwise, `false`.
 
+### IsFibonacci Method
+
+Checks if an integer is a Fibonacci number.
+
+#### Parameters
+
+- `input` (int): The integer to check.
+
+#### Returns
+
+- `bool`: `true` if the input is a fibonacci number; otherwise, `false`.
+
 ## Conclusion
 
 The `UtilityMath` class provides utility methods for common mathematical operations. Developers can use these methods to check if an integer is odd, even, or a prime number. These functions are designed to assist in mathematical computations and can be used to implement logic based on the properties of numbers.
