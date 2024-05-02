@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 
-namespace UtilityLib.Extensions;
+namespace UtilityLib.UExtensions;
 
-public static class ObjectExtensions
+public static class UObjectExtensions
 {
     public static bool HasMethod(this object objectToCheck, string methodName)
     {

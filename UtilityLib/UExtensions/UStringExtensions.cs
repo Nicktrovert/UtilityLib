@@ -1,8 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace UtilityLib.Extensions;
+namespace UtilityLib.UExtensions;
 
-public static class StringExtensions
+public static class UStringExtensions
 {
     public static string UpperFirstChar(this string var)
     {

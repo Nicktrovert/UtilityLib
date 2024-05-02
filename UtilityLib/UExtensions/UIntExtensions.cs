@@ -1,6 +1,6 @@
-﻿namespace UtilityLib.Extensions;
+﻿namespace UtilityLib.UExtensions;
 
-public static class IntExtensions
+public static class UIntExtensions
 {
     public static bool IsOdd(this int var)
     {
