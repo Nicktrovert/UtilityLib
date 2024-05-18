@@ -1,6 +1,6 @@
 ﻿namespace UtilityLib.UAttributes;
 
-[AttributeUsage(AttributeTargets.Class)]
+[AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
 public class UInfoAttribute : Attribute
 {
     public string Description { get; }
