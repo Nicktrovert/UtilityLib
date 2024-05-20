@@ -31,7 +31,7 @@ public static class UObjectExtensions
     public static string TryGetString(this object objectToCheck, string fieldName)
     {
         if (objectToCheck.HasProperty(fieldName))
-            return objectToCheck.GetType().GetProperty(fieldName).GetValue(objectToCheck, null).ToString();
+            return objectToCheck.GetType().GetProperty(fieldName).GetValue(objectToCheck, null).ToString() ?? string.Empty;
         return string.Empty;
     }
 

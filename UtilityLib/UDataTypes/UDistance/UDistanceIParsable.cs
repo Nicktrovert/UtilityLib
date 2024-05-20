@@ -18,19 +18,18 @@ public partial struct UDistance : IParsable<UDistance>
         provider = provider ?? CultureInfo.CurrentCulture;
 
         string format = s[^1].ToString();
-        if (format == " ")
-            format = s[^0].ToString();
-        else
-            format = s[^1].ToString() + s[^0].ToString();
 
-        try
+        if (format == " ") format = s[^0].ToString();
+        else format = s[^1].ToString() + s[^0].ToString();
+
+        try 
         {
             return format switch
             {
                 "mm" => new UDistance(Convert.ToDecimal(s.Remove(s.Length - 2, 2)) * (10 ^ 9)),
                 "cm" => new UDistance(Convert.ToDecimal(s.Remove(s.Length - 2, 2)) * (10 ^ 6)),
                 "dm" => new UDistance(Convert.ToDecimal(s.Remove(s.Length - 2, 2)) * (10 ^ 3)),
-                "m" => new UDistance(Convert.ToDecimal(s.Remove(s.Length - 2, 2))),
+                "m" => new UDistance(Convert.ToDecimal(s.Remove(s.Length - 1, 1))),
                 "km" => new UDistance(Convert.ToDecimal(s.Remove(s.Length - 2, 2)) * (10 ^ -3)),
                 "Mm" => new UDistance(Convert.ToDecimal(s.Remove(s.Length - 2, 2)) * (10 ^ -6)),
                 "Gm" => new UDistance(Convert.ToDecimal(s.Remove(s.Length - 2, 2)) * (10 ^ -9)),
@@ -45,16 +44,12 @@ public partial struct UDistance : IParsable<UDistance>
 
     public static bool TryParse(string? s, out UDistance result)
     {
+        result = default;
         if (TryParse(s, CultureInfo.CurrentCulture, out UDistance result2))
         {
             result = result2;
             return true;
-        }
-        else
-        {
-            result = default;
-            return false;
-        }
+        } else return false;
     }
 
     public static bool TryParse(string? s, IFormatProvider? provider, out UDistance result)

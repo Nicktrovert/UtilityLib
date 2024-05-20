@@ -1,6 +1,7 @@
 ﻿using UtilityLib.UMath;
 using UtilityLib.UString;
 using UtilityLib.UDataTypes.UVector;
+using UtilityLib.UDataTypes.UTrees;
 
 namespace UtilityLibTesting
 {
@@ -27,11 +28,34 @@ namespace UtilityLibTesting
             UListTesting.UListMain();
             
             UTemperatureTesting.UTemperatureMain();
+
+            Console.WriteLine("### Started testing BinaryTree! \n\n-------------------------\n");
+
+            UBinaryTree<int> tree = new UBinaryTree<int>(0);
+
+            tree.SetNode(tree.BaseNode, 1, TreeOrientation.left);
+            tree.SetNode(tree.BaseNode, 2, TreeOrientation.right);
+            tree.SetNode(tree.BaseNode.Left, 3, TreeOrientation.left);
+            tree.SetNode(tree.BaseNode.Left, 4, TreeOrientation.right);
+            tree.SetNode(tree.BaseNode.Right, 5, TreeOrientation.left);
+            tree.SetNode(tree.BaseNode.Right, 6, TreeOrientation.right);
+
+            Console.WriteLine(tree.FindNodeByValue(tree.BaseNode, 5).Value);
+            Console.WriteLine(tree.FindNodeByValue(tree.BaseNode, 7));
+
+            Console.WriteLine(tree.GetSize().ToString());
+
+            Console.WriteLine(tree.DoesNodeExist(tree.BaseNode, 7).ToString());
+            Console.WriteLine(tree.DoesNodeExist(tree.BaseNode, 6).ToString());
+
+            Console.WriteLine("\n### Finished testing BinaryTree! \n\n-------------------------\n");
+
+            Console.Read();
         }
 
         public static void TestVector4D()
         {
-            Console.WriteLine("### Started testing Vector4D! ###\n");
+            Console.WriteLine("### Started testing Vector4D! \n\n-------------------------\n");
 
             UVector4D v1 = new(1, 2, 3, 4);
             UVector4D v2 = new(2, 3, 4, 5);

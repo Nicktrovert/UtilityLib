@@ -6,7 +6,7 @@ public static class UTemperatureTesting
 {
     public static void UTemperatureMain()
     {
-        Console.WriteLine("### Started Testing UList ### \n");
+        Console.WriteLine("### Started Testing UTemperature ### \n");
 
         UTemperature temp = new UTemperature(0);
         Console.WriteLine($"0°C to Kelvin (ToString): {temp.ToString("K")}");
@@ -25,6 +25,6 @@ public static class UTemperatureTesting
         Console.WriteLine($"{temp.ToString("K")} to Celsius (Both): {UTemperature.Parse(temp.ToString())}");
         Console.WriteLine($"{temp.ToString("C")} to Celsius (Both): {UTemperature.Parse(temp.ToString())}");
         
-        Console.WriteLine("\n### Finished Testing UList ### \n\n---------------------");
+        Console.WriteLine("\n### Finished Testing UTemperature ### \n\n---------------------");
     }
 }

@@ -11,6 +11,7 @@ public partial struct UDistance : IFormattable
     public override string ToString() => this.ToString("G", CultureInfo.CurrentCulture);
     public string ToString(string format) => this.ToString(format, CultureInfo.CurrentCulture);
 
+    public string ToString(UDistanceFormat format, IFormatProvider provider) => ToString(format.ToString(), provider);
     public string ToString(string format, IFormatProvider provider)
     {
         if (String.IsNullOrEmpty(format)) format = "G";
