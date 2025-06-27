@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace UtilityLib.UDataTypes.UTrees;
+namespace UtilityLib.UData.UTrees;
 
 public partial class UBinaryTreeNode<T>
 {

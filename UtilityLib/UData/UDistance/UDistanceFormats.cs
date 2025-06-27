@@ -4,10 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UtilityLib.UDataTypes.UTrees;
-public enum TreeOrientation
+namespace UtilityLib.UData.UDistance;
+
+public enum UDistanceFormat
 {
-    left,
-    middle,
-    right,
+    mm,
+    cm,
+    dm,
+    m,
+    km,
+    Mm,
+    Gm,
 }
+

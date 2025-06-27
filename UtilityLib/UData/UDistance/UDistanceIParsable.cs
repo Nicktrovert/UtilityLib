@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UtilityLib.UDataTypes.UDistance;
+namespace UtilityLib.UData.UDistance;
 public partial struct UDistance : IParsable<UDistance>
 {
     public static UDistance Parse(string s) => Parse(s, CultureInfo.CurrentCulture);

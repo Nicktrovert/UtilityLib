@@ -1,5 +1,5 @@
 ﻿
-namespace UtilityLib.UDataTypes.UTemperature;
+namespace UtilityLib.UData.UTemperature;
 
 public partial struct UTemperature
 {

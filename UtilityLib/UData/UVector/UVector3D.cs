@@ -1,4 +1,4 @@
-﻿namespace UtilityLib.UDataTypes.UVector;
+﻿namespace UtilityLib.UData.UVector;
 
 /// <summary>
 /// Represents a 3D vector with <see cref="X"/>, <see cref="Y"/>, and <see cref="Z"/> components.

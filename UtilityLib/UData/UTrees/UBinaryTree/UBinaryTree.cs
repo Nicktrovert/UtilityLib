@@ -1,4 +1,4 @@
-﻿namespace UtilityLib.UDataTypes.UTrees;
+﻿namespace UtilityLib.UData.UTrees;
 
 public partial class UBinaryTree<T>
 {

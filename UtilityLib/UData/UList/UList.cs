@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UtilityLib.UAttributes;
 
-namespace UtilityLib.UDataTypes.UList;
+namespace UtilityLib.UData.UList;
 
 public partial struct UList<T>
 {

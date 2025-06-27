@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace UtilityLib.UDataTypes.UList;
+namespace UtilityLib.UData.UList;
 
 public partial struct UList<T> : IEnumerable
 {

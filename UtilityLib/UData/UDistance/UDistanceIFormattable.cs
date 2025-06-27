@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UtilityLib.UDataTypes.UDistance;
+namespace UtilityLib.UData.UDistance;
 public partial struct UDistance : IFormattable
 {
     public override string ToString() => this.ToString("G", CultureInfo.CurrentCulture);

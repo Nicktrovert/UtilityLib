@@ -1,4 +1,4 @@
-﻿namespace UtilityLib.UDataTypes.UVector;
+﻿namespace UtilityLib.UData.UVector;
 
 /// <summary>
 /// Represents a generic vector interface.
