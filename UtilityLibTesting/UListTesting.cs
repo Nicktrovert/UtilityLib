@@ -1,4 +1,4 @@
-﻿using UtilityLib.UDataTypes.UList;
+﻿using UtilityLib.UData.UList;
 
 namespace UtilityLibTesting;
 

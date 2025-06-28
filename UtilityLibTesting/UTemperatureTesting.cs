@@ -1,4 +1,4 @@
-﻿using UtilityLib.UDataTypes.UTemperature;
+﻿using UtilityLib.UData.UTemperature;
 
 namespace UtilityLibTesting;
 

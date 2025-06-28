@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLibTesting", "Utilit
 		{7465443F-BDFD-40F7-964B-63C18A482295} = {7465443F-BDFD-40F7-964B-63C18A482295}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLib.Tests", "UtilityLib.Tests\UtilityLib.Tests.csproj", "{A117E2DC-6B63-42D7-AD12-D3251F3B9936}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{D35724E6-3800-4C0C-9644-F1E05A1F2FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D35724E6-3800-4C0C-9644-F1E05A1F2FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D35724E6-3800-4C0C-9644-F1E05A1F2FD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A117E2DC-6B63-42D7-AD12-D3251F3B9936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A117E2DC-6B63-42D7-AD12-D3251F3B9936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A117E2DC-6B63-42D7-AD12-D3251F3B9936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A117E2DC-6B63-42D7-AD12-D3251F3B9936}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

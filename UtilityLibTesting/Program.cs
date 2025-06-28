@@ -1,7 +1,7 @@
 ﻿using UtilityLib.UMath;
 using UtilityLib.UString;
-using UtilityLib.UDataTypes.UVector;
-using UtilityLib.UDataTypes.UTrees;
+using UtilityLib.UData.UVector;
+using UtilityLib.UData.UTrees;
 
 namespace UtilityLibTesting
 {
