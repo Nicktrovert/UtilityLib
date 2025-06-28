@@ -1,6 +1,6 @@
 ﻿namespace UtilityLib.UData.ULinkedLists.USinglyLinkedList;
 
-public partial struct USinglyLinkedList<T>
+public partial struct USinglyLinkedList<T> : IULinkedList<T>
 {
     public void AddFirst(T data)
     { 

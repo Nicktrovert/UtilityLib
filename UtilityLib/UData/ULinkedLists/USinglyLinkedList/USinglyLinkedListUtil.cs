@@ -1,6 +1,6 @@
 ﻿namespace UtilityLib.UData.ULinkedLists.USinglyLinkedList;
 
-public partial struct USinglyLinkedList<T>
+public partial struct USinglyLinkedList<T> : IULinkedList<T>
 {
     public void Reverse()
     {
@@ -18,6 +18,8 @@ public partial struct USinglyLinkedList<T>
 
         return reversedLinkedList;
     }
+
+    IULinkedList<T> IULinkedList<T>.GetReverse() => (IULinkedList<T>)GetReverse();
 
     public bool HasCycle()
     {

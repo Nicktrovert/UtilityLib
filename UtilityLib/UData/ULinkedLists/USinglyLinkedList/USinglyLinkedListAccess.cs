@@ -1,6 +1,6 @@
 ﻿namespace UtilityLib.UData.ULinkedLists.USinglyLinkedList;
 
-public partial struct USinglyLinkedList<T>
+public partial struct USinglyLinkedList<T> : IULinkedList<T>
 {
     public int Count { get; private set; } = 0;
 

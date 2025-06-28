@@ -3,7 +3,7 @@
 namespace UtilityLib.UData.ULinkedLists.USinglyLinkedList;
 
 [StructLayout(LayoutKind.Auto)]
-public partial struct USinglyLinkedList<T>
+public partial struct USinglyLinkedList<T> : IULinkedList<T>
 {
     public USinglyLinkedListNode<T>? Head { get; private set; } = null;
 
